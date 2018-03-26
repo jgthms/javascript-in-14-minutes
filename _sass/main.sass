@@ -1,0 +1,49 @@
+@charset "utf-8"
+
+@import "../node_modules/bulma/sass/utilities/initial-variables"
+@import "../node_modules/bulma/sass/utilities/_all"
+@import "../node_modules/bulma/sass/base/_all"
+@import "../node_modules/bulma/sass/elements/content"
+@import "../node_modules/bulma/sass/elements/form"
+@import "../node_modules/bulma/sass/elements/title"
+@import "../node_modules/bulma/sass/components/message"
+
+.block
+  +block
+
+$hl-background: #f3f5f6
+$hl-black: #39464e
+$hl-blue: #2795ee
+$hl-green: #249d7f
+$hl-purple: #a151d2
+$hl-orange: #f18c16
+$hl-red: #ed5c65
+$hl-grey: #909197
+
+$s-green: #87FFE1
+$s-blue: #A8D8FF
+$s-red: #FFB0B5
+$s-purple: #EAC9FF
+$s-yellow: #FFE270
+$s-orange: #FFA270
+
+=selection($current-selector: false)
+  @if $current-selector
+    &::-moz-selection
+      @content
+    &::selection
+      @content
+  @else
+    \::-moz-selection
+      @content
+    \::selection
+      @content
+
++selection
+  background-color: $s-yellow
+
+@import "font"
+@import "layout"
+@import "stamp"
+@import "content"
+@import "highlight"

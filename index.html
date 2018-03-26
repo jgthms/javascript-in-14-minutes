@@ -1,0 +1,1573 @@
+---
+layout: default
+---
+
+<header class="header">
+  <h1 class="title">JavaScript in <strong class="fourteen">14</strong> minutes</h1>
+  <p class="subtitle">by <a href="https://jgthms.com" target="_blank">Jeremy Thomas</a></p>
+
+  <div class="block">
+    <a href="https://bulma.io">
+      <img src="{{ site.url }}/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+    </a>
+  </div>
+
+  <div class="content">
+    <p>Since you've already learned <a href="https://jgthms.com/web-design-in-4-minutes/" target="_blank">Web design in 4 minutes</a>, it's time to dive into the Web's main programming language: <strong>JavaScript</strong>.</p>
+  </div>
+
+  <!-- Case: noscript -->
+  <noscript>
+    <div class="message is-warning">
+      <div class="message-body">
+        To learn JavaScript, you need to enable it first!
+        <br>
+        <a href="https://www.enable-javascript.com/" target="_blank">Learn how to enable JavaScript in your web browser</a>.
+      </div>
+    </div>
+    <style type="text/css">#introduction{ display: none; }</style>
+  </noscript>
+
+  <!-- Case: mobile or tablet -->
+  <div class="case is-mobile is-tablet">
+    <div class="message is-warning">
+      <div class="message-body">
+        <p>
+          It looks like you're on a <strong><span class="case is-mobile">mobile device</span> <span class="case is-tablet">tablet</span></strong>! 😱
+        </p>
+        <p>
+          But fear not! 😊
+        </p>
+        <p>
+          While this tutorial is not optimized for this platform, I still made it readable enough for you to enjoy.
+        </p>
+        <p>
+          You should however revisit it on a desktop later if you can, to experience all the features!
+        </p>
+        <p>Anyway, <a onclick="showStep(1);">let's get started</a>!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case: desktop -->
+  <div id="introduction" class="case is-desktop">
+    <div class="content">
+      <p>I believe you are using this:</p>
+
+      <div id="platform" class="detect">
+        <div class="field">
+          <div class="label"><strong>Operating System</strong></div>
+          <div class="select">
+            <select id="os">
+              <option value="">---</option>
+              <option value="windows">Windows</option>
+              <option value="mac">Mac OS</option>
+              <option value="linux">Linux</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <div class="label"><strong>Web Browser</strong></div>
+          <div class="select">
+            <select id="browser">
+              <option value="">---</option>
+              <option value="chrome">Google Chrome</option>
+              <option value="firefox">Mozilla Firefox</option>
+              <option value="safari">Apple Safari</option>
+              <option value="edge">Microsoft Edge</option>
+              <option value="opera">Opera</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <p>If this information is correct, let's <a onclick="showStep(1);">get started</a>.</p>
+    </div>
+  </div>
+
+  <!-- Case: return -->
+  <div id="return" class="message is-success">
+    <div class="message-body">
+      <p>
+        It looks that you've already been here! 😃
+        <br>
+        Do you want to <a id="resume">resume from where you left off</a> or <a id="reset">start over</a>?
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- 01 -->
+<div id="step1" class="step">
+  <div class="content">
+    <h2>Console <span class="stamp is-tool">tool</span></h2>
+
+    <p>
+      Your browser comes with a <strong>developer console</strong> that allows you to type JavaScript directly in this webpage.
+    </p>
+
+    <div class="case is-chrome not-mobile not-tablet">
+      Since you're using <strong>Google Chrome</strong>, open the JavaScript console with
+      <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd> or <kbd class="key">F12</kbd></span>
+      <span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd></span>
+    </div>
+
+    <div class="case is-firefox not-mobile not-tablet">
+      Since you're using <strong>Mozilla Firefox</strong>, open the Web console with
+      <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd> or <kbd class="key">F12</kbd></span>
+      <span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd></span>
+    </div>
+
+    <div class="case is-edge not-mobile not-tablet">
+      Since you're using <strong>Microsoft Edge</strong>, open the JavaScript console with
+      <span class="case is-windows"><kbd class="key">F12</kbd></span>
+    </div>
+
+    <div class="case is-opera not-mobile not-tablet">
+      Since you're using <strong>Opera</strong>, open the JavaScript console with
+      <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">I</kbd></span>
+      <span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">I</kbd></span>
+    </div>
+
+    <div class="case is-safari not-mobile not-tablet">
+      <p>Since you're using <strong>Apple Safari</strong>:</p>
+      <ol>
+        <li>Go to <strong>Preferences</strong> with <kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">,</kbd></li>
+        <li>Go to the <strong>Advanced</strong> tab</li>
+        <li>Enable <strong>Show Develop menu in menu bar</strong></li>
+        <li>Open the JavaScript console <kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">C</kbd></li>
+      </ol>
+    </div>
+
+    <p>Let's see if it works!</p>
+    <p>In the console, type (or paste) the following, and press <kbd class="key">Enter</kbd></p>
+  </div>
+
+  {% capture snippet %}{% include snippets/snippet_hello_world.md %}{% endcapture %}
+  {% include partials/snippet.html contents=snippet %}
+</div>
+
+<!-- 02 -->
+<div id="step2" class="step">
+  <div class="content">
+    {% include partials/gj.html %}
+    <p>You've just used <code>alert()</code>, a native <strong>JavaScript function</strong> that comes with every browser.</p>
+
+    <p>But what have you <a onclick="showStep(3);">done exactly</a>?</p></div>
+  </div>
+</div>
+
+<!-- 03 -->
+<div id="step3" class="step">
+  <div class="content">
+    <h2>Functions <span class="stamp is-concept">concept</span></h2>
+    <p>You've <strong>called</strong> the <code>alert()</code> <em>function</em> with the <code>'Hello&nbsp;World!'</code> <em>parameter</em>.</p>
+
+    <p>You have basically done 4 things:</p>
+
+    <div class="stabs">
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>name</strong> of the function</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-blue">alert</span>('Hello World!')</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-code"><code class="stabilo">alert<span class="is-black">(</span>'Hello World!')</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed a <strong>parameter</strong></div>
+        <div class="stab-code"><code class="stabilo">alert(<span class="is-green">'Hello World!'</span>)</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-code"><code class="stabilo">alert('Hello World!'<span class="is-black">)</span></code></div>
+      </div>
+    </div>
+
+    <p>Sometimes, there's no parameter.<br>
+    Sometimes, there's multiple parameters.<br>
+    Most of them are required, but some of them can be optional.</p>
+
+    <p>In this case, <code>alert()</code> requires only one parameter.</p>
+
+    <p>But what <a onclick="showStep(4);">type of parameter</a> is that?</p>
+  </div>
+</div>
+
+<!-- 04 -->
+<div id="step4" class="step">
+  <div class="content">
+    <h2>Strings <span class="stamp is-type">type</span></h2>
+
+    <p>When you handle text, you're using <strong>strings</strong>, which are a series of <em>characters</em>. In our case, we used a series of <strong>12 characters</strong>: <code>Hello World!</code>. This includes all lowercase and uppercase letters, the space, and the exclamation point.</p>
+
+    <p>To define where the string <em>starts</em> and where it <em>ends</em>, you need to wrap it in <strong>quotes</strong> (either single <code>'</code> or double <code>"</code>).</p>
+
+    <p>When you defined the <code>'Hello World!'</code> string:</p>
+
+    <ol>
+      <li>you typed a single <strong>quote</strong></li>
+      <li>you typed the <strong>12 characters</strong></li>
+      <li>you typed another single <strong>quote</strong></li>
+    </ol>
+
+    <p>What if you wanted to deal with <a onclick="showStep(5);">numbers instead</a>?</p>
+  </div>
+</div>
+
+<!-- 05 -->
+<div id="step5" class="step">
+  <div class="content">
+    <h2>Numbers <span class="stamp is-type">type</span></h2>
+
+    <p>Like any other programming language, JavaScript can handle <strong>numbers</strong>.</p>
+
+    <p>These numbers can be big or small, with or without decimals, combined through numeric operations…</p>
+
+    <p>Type or paste the following snippet in your console:</p>
+  </div>
+
+  {% capture snippet %}{% include snippets/snippet_numbers.md %}{% endcapture %}
+  {% include partials/snippet.html contents=snippet %}
+</div>
+
+<!-- 06 -->
+<div id="step6" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Perfect!" %}
+
+    <p>Notice a few things:</p>
+
+    <ul>
+      <li>you're using the <code>+</code> and <code>*</code> <strong>operators</strong></li>
+      <li>the <strong>mathematical order</strong> is respected: first <code>5 * 3</code> is calculated, then <code>9 + 15</code></li>
+      <li>the <strong>spaces</strong> around the <code>*</code> symbol don't affect the output ; they're just here to help us (humans!) <em>read</em> the code.</li>
+    </ul>
+
+    <p>You can find numbers in <a onclick="showStep(7);">lots of places</a>.</p>
+  </div>
+</div>
+
+<!-- 07 -->
+<div id="step7" class="step">
+  <div class="content">
+    <h2>Browser dimensions <span class="stamp is-info">info</span></h2>
+    <p>Numbers are everywhere! Especially in a browser.</p>
+
+    <p>For example, your current browser window has a certain <strong>width</strong> that you can access with JavaScript.</p>
+
+    <p>Type the following:</p>
+
+    {% capture snippet %}{% include snippets/snippet_innerwidth.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 08 -->
+<div id="step8" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Wonderful!" %}
+
+    <p>
+      This means your browser's window is <strong id="browserWidth">1680</strong> pixels wide.
+    </p>
+
+    <p>
+      As you would have guessed, <code>window.innerHeight</code> exists as well, as does <code>window.scrollY</code>, which gives you the current scroll position.
+    </p>
+
+    <p>But what is <code>window</code> <a onclick="showStep(9);">exactly</a>?</p>
+  </div>
+</div>
+
+<!-- 09 -->
+<div id="step9" class="step">
+  <div class="content">
+    <h2>Objects <span class="stamp is-type">type</span></h2>
+
+    <p>
+      <code>window</code> is a JavaScript <strong>object</strong>.
+    </p>
+    <p>
+      <code>innerWidth</code> is a <strong>property</strong> of the <code>window</code> object.
+      <br>
+      To access this property, you used a dot <code>.</code> to specify you wanted the <code>innerWidth</code> that exists <em>within</em> the <code>window</code> object.
+    </p>
+
+    <p>The JavaScript object is basically a <strong>type</strong> that contains other things.</p>
+    <p>For example, <code>window</code> also has:</p>
+
+    <ul>
+      <li><code>window.origin</code> which is a string</li>
+      <li><code>window.scrollY</code> which is a number</li>
+      <li><code>window.location</code> which is an object</li>
+    </ul>
+
+    <p>If <code>window</code> is an object that contains <code>location</code> which is another object, this means that <a onclick="showStep(10);">JavaScript objects support</a>…</p>
+  </div>
+</div>
+
+<!-- 10 -->
+<div id="step10" class="step">
+  <div class="content">
+    <h2>Nesting <span class="stamp is-info">info</span></h2>
+
+    <p>A property of an object can be an object itself (inception!).</p>
+
+    <p>Since <code>window.location</code> is an object too, it has properties of its own. To access these properties, just add another dot <code>.</code> and the name of the property.</p>
+
+    <p>For example, the <code>href</code> property exists:</p>
+
+    {% capture snippet %}{% include snippets/snippet_href.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 11 -->
+<div id="step11" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Awesome!" %}
+
+    <p>You just displayed the <strong>full URL</strong> of this webpage. This is because:</p>
+
+    <ul>
+      <li><code>window</code> is an object</li>
+      <li><code>location</code> is an object</li>
+      <li><code>href</code> is a string</li>
+    </ul>
+
+    <p>
+      There's no limit to how deeply objects can be nested.
+      <br>
+      There's also no limit to the number of properties an object can have.
+    </p>
+
+    <p>
+      As we've seen, the properties of an object can be of any type: strings, numbers, objects, and even functions. In the latter case, it's <a onclick="showStep(12);">called…</a>
+    </p>
+  </div>
+</div>
+
+<!-- 12 -->
+<div id="step12" class="step">
+  <div class="content">
+    <h2>Methods <span class="stamp is-info">info</span></h2>
+
+    <p>When an object's <strong>property</strong> is a <strong>function</strong>, it's called a <strong>method</strong> instead.</p>
+
+    <p>Actually, the <code>alert()</code> function we've been using so far is a method of the <code>window</code> object!</p>
+
+    {% capture snippet %}{% include snippets/snippet_omg.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 13 -->
+<div id="step13" class="step">
+  <div class="content">
+    {% include partials/gj.html title="OMG indeed!" %}
+
+    <p>
+      Since <code>window</code> is the top-level object in the browser, you can access all its properties and methods directly.
+    </p>
+
+    <p>
+      That's why typing <code>location.href</code> is the same as typing <code>window.location.href</code>.
+    </p>
+
+    <p>
+      Or why <code>alert()</code> is equivalent to <code>window.alert()</code>.
+    </p>
+
+    <p>
+      Objects are useful for grouping several properties under the same name and scope, and defining a <strong>hierarchy</strong> in the data. It's like a tree, where each branch can have other smaller branches.
+    </p>
+
+    <p>
+      But what if you only needed a <a onclick="showStep(14);">list of things</a>…
+    </p>
+  </div>
+</div>
+
+<!-- 14 -->
+<div id="step14" class="step">
+  <div class="content">
+    <h2>Arrays <span class="stamp is-type">type</span></h2>
+
+    <p>A JavaScript <strong>array</strong> is a type that can contain multiple values, as if they were in an ordered list.</p>
+
+    <p>Let's pass an array of <strong>3 strings</strong> to the <code>alert()</code> function:</p>
+    {% capture snippet %}{% include snippets/snippet_what_is_up.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 15 -->
+<div id="step15" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Exactly!" %}
+
+    <p>
+      You already know the syntax for calling the <code>alert</code> function: <code>alert(parameter)</code>.
+    </p>
+
+    <p>
+      In this case, the parameter is an array with 3 items that you have defined like this:
+    </p>
+
+    <div class="stabs">
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>square bracket</strong></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-black">[</span>'What', 'is', 'up']</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>first item</strong> of the array, a string</div>
+        <div class="stab-code"><code class="stabilo">[<span class="is-green">'What'</span>, 'is', 'up']</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed a <strong>comma</strong> to separate the items</div>
+        <div class="stab-code"><code class="stabilo">['What'<span class="is-black">,</span> 'is', 'up']</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you added <strong>two other items</strong> to the list</div>
+        <div class="stab-code"><code class="stabilo">['What', <span class="is-green">'is'</span><span class="is-black">, </span><span class="is-green">'up'</span>]</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the square bracket</div>
+        <div class="stab-code"><code class="stabilo">['What', 'is', 'up'<span class="is-black">]</span></code></div>
+      </div>
+    </div>
+
+    <p>
+      An array can contain any <strong>type</strong> of values: strings, numbers, objects, other arrays, and <em>more</em>…
+    </p>
+
+    <p>
+      Try out this snippet:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_list.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 16 -->
+<div id="step16" class="step">
+  <div class="content">
+    {% include partials/gj.html title="True!" %}
+
+    <p>
+      The first item <code>2 + 5</code> is a number, while the second one <code>'samurai'</code> is a string.
+    </p>
+
+    <p>
+      What about the <strong>third parameter</strong>? It's not a string because it's not wrapped in quotes, and it's not a number either.
+    </p>
+    <p>
+      So <a onclick="showStep(17);">what is it</a>?
+    </p>
+  </div>
+</div>
+
+<!-- 17 -->
+<div id="step17" class="step">
+  <div class="content">
+    <h2>Booleans <span class="stamp is-type">type</span></h2>
+
+    <p>While strings and numbers have an infinite amount of <em>possible</em> values, a <strong>boolean</strong> can only be either <code>true</code> or <code>false</code>.</p>
+
+    <p>
+      By combining the <code>alert()</code> function and the 3-item array on a <em>single</em> line, it makes our code less readable.
+    </p>
+
+    <p>
+      What if we could split the two by moving the array onto <a onclick="showStep(18);">its own line</a>?
+    </p>
+  </div>
+</div>
+
+<!-- 18 -->
+<div id="step18" class="step">
+  <div class="content">
+    <h2>Variables <span class="stamp is-concept">concept</span></h2>
+
+    <p>
+      We can move the array into a <strong>variable</strong>.
+    </p>
+
+    <p>
+      A variable is a <strong>container</strong> that stores a certain <strong>value</strong>. It has a <strong>name</strong> (so you can identify and re-use it), and it has a <strong>value</strong> (so you can update it later on).
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_array.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet skipRun=true %}
+
+    <ul>
+      <li>
+        <code>my_things</code> is the <strong>name</strong> of the variable
+      </li>
+      <li>
+        <code>[2 + 5, 'samurai', true]</code> is the <strong>value</strong> of the variable
+      </li>
+    </ul>
+
+    <p>
+      Here's the breakdown:
+    </p>
+
+    <div class="stabs is-vertical">
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>keyword</strong> <code>var</code></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-purple">var</span> my_things = [2 + 5, 'samurai', true];</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>name</strong> of the variable</div>
+        <div class="stab-code"><code class="stabilo">var <span class="is-blue">my_things</span> = [2 + 5, 'samurai', true];</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>assignment</strong> operator <code>=</code></div>
+        <div class="stab-code"><code class="stabilo">var my_things <span class="is-purple">=</span> [2 + 5, 'samurai', true];</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>array</strong></div>
+        <div class="stab-code"><code class="stabilo">var my_things = <span class="is-black">[</span><span class="is-red">2</span><span class="is-purple"> + </span><span class="is-red">5</span><span class="is-black">, </span><span class="is-green">'samurai'</span><span class="is-black">, </span><span class="is-purple">true</span><span class="is-black">]</span>;</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed a <strong>semicolon</strong> to end the statement</div>
+        <div class="stab-code"><code class="stabilo">var my_things = [2 + 5, 'samurai', true]<span class="is-black">;</span></code></div>
+      </div>
+    </div>
+
+    <p>
+      This means that <code>my_things</code> is equal to <code>[2 + 5, 'samurai', true]</code>.
+    </p>
+
+    <p>
+      We can now reinstate the <code>alert</code> function:
+    </p>
+
+    <p>
+      Since we now have <em>two statements</em>, we need to separate them with a <strong>semicolon</strong> <code>;</code> in order to know where one ends and the next one begins.
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_array_alert.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 19 -->
+<div id="step19" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Wonderful!" %}
+
+    <p>
+      By storing our array into a variable, we managed to make our code more <strong>readable</strong>.
+    </p>
+
+    <p>
+      Although this variables contains a list of several things, we might want to deal with only a <strong>single</strong> item of the list.
+    </p>
+
+    <p>
+      To access a <em>specific item</em> of an array, you first need to know its <strong>index</strong> (or position) within the array. You then need to wrap this index into <strong>square brackets</strong>.
+    </p>
+
+    <p>
+      Can you guess which item is gonna be displayed?
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_array_index.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 20 -->
+<div id="step20" class="step">
+  <div class="content">
+    {% include partials/gj.html title="You guessed it!" %}
+
+    <p>
+      It's the <strong>second item</strong> that showed up! In programming, indexes start at zero <code>0</code>.
+    </p>
+
+    <div class="stabs is-vertical">
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>name</strong> of the array</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-blue">my_things</span>[1]</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>square bracket</strong></div>
+        <div class="stab-code"><code class="stabilo">my_things<span class="is-black">[</span>1]</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>index</strong> of the item you wanted to access</div>
+        <div class="stab-code"><code class="stabilo">my_things[<span class="is-red">1</span>]</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the square bracket</div>
+        <div class="stab-code"><code class="stabilo">my_things[1<span class="is-black">]</span></code></div>
+      </div>
+    </div>
+
+    <p>
+      It turns out that variables are <strong>objects</strong> too! Which means that variables also have <strong>properties</strong> and <strong>methods</strong>.
+    </p>
+
+    <p>
+      For example, <code>my_things</code> has a property called <code>length</code>:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_array_length.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 21 -->
+<div id="step21" class="step">
+  <div class="content">
+    {% include partials/gj.html title="That's right!" %}
+
+    <p>
+      The array has <strong>3</strong> items. You'll see that if you add or remove items in <code>my_things</code>, this <code>length</code> value will change accordingly.
+    </p>
+
+    <p>
+      While readability and properties are useful, the main point of a variable is that it's <strong>editable</strong>: you can change the value afterwards!
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_array_edit.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 22 -->
+<div id="step22" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Yep!" %}
+
+    <p>
+      Two alert boxes have been displayed, but with different values! That's because between the first call and the second one, the value of <code>my_things</code> has been <strong>updated</strong>: a fourth item, the string <code>'LOVE'</code>, was added.
+    </p>
+
+    <p>
+      Note that the second time we're assigning a value to <code>my_things</code>, we're <strong>not</strong> using the <code>var</code> keyword: it's because we're editing the <code>my_things</code> variable defined two lines above.
+    </p>
+
+    <p>
+      <strong>You only use the keyword <code>var</code> when you're <em>creating</em> a new variable</strong>, not when you're <em>editing</em> one.
+    </p>
+
+    <p>
+      Do you remember I told you variables had <strong>methods</strong> too (since they're objects)? Another way to edit an array's value is by using the <code>push()</code> method:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_array_push.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 23 -->
+<div id="step23" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Fantastic!" %}
+
+    <p>
+      The <code>my_things</code> array ends up with <strong>4</strong> items.
+    </p>
+
+    <p>
+      While the <code>push()</code> method altered the array, others simply <strong>return</strong> a value:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_array_includes.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 24 -->
+<div id="step24" class="step">
+  <div class="content">
+    {% include partials/gj.html title="No ninja here!" %}
+
+    <p>
+      The <code>includes()</code> method checked if the string <code>'ninja'</code> was present in the array. Since it wasn't, the method returned <code>false</code>, a <strong>boolean</strong> value.
+    </p>
+
+    <p>
+      As a matter of fact, when dealing with booleans, typing the keywords <code>true</code> or <code>false</code> is quite rare. Usually, booleans exist as a result of a function call (like <code>includes()</code>) or a <strong>comparison</strong>.
+    </p>
+
+    <p>
+      Here's a "<em>greater than</em>" comparison:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_innerwidth_boolean.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 25 -->
+<div id="step25" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Great again!" %}
+
+    <p>
+      This means your browser window is <strong id="wider">not</strong> wider than <strong>400 pixels</strong>.
+    </p>
+
+    <div class="stabs">
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>first item</strong> to compare, a <strong>number</strong></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-blue">window<span class="is-black">.</span>innerWidth</span> > 400</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the "greater than" <strong>operator</strong></div>
+        <div class="stab-code"><code class="stabilo">window.innerWidth <span class="is-purple">></span> 400</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>second item</strong>, also a <strong>number</strong></div>
+        <div class="stab-code"><code class="stabilo">window.innerWidth > <span class="is-red">400</span></code></div>
+      </div>
+    </div>
+
+    <p>
+      Just like the <code>+</code> and <code>*</code> before, <code>&gt;</code> is a JavaScript <strong>operator</strong>.
+    </p>
+
+    <p>
+      When you make such a comparison with the "<em>greater than</em>" operator <code>&gt;</code>, you obtain a <strong>boolean</strong> value.
+    </p>
+
+    <p>
+      Since the result of a <strong>comparison</strong> only has <strong>2</strong> outcomes (<code>true</code> or <code>false</code>), it's useful in cases where your code has to <a onclick="showStep(26);">make a decision</a>…
+    </p>
+  </div>
+</div>
+
+<!-- 26 -->
+<div id="step26" class="step">
+  <div class="content">
+    <h2>Conditional statements <span class="stamp is-concept">concept</span></h2>
+
+    <p>
+      Conditional statements are one of the most important concepts in programming. They allow your code to perform certain commands <em>only if</em> certain conditions are met. These conditions can for example be based on:
+    </p>
+
+    <ul>
+      <li>
+        a user's input (is the password entered correct?)
+      </li>
+      <li>
+        the current state (is it day or night?)
+      </li>
+      <li>
+        the value of a certain element (is this person older than 18?)
+      </li>
+    </ul>
+
+    <p>
+      For now, let's trigger an alert box only if you happen to be on my domain!
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_if.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+
+    <div class="message is-info">
+      <div class="message-body">
+        <p>If you want to <strong>type</strong> this code instead of simply copy-pasting it, press <kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">Enter</kbd> to add line breaks in the console!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 27 -->
+<div id="step27" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Equal indeed!" %}
+
+    <p>
+      We're doing another comparison here, but with the "<em>equal to</em>" operator <code>==</code> instead.
+    </p>
+
+    <div class="stabs is-vertical">
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>keyword</strong> <code>if</code></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-purple">if</span> (window.location.hostname == 'jgthms.com') {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-code"><code class="stabilo">if <span class="is-black">(</span>window.location.hostname == 'jgthms.com') {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed a <strong>comparison</strong></div>
+        <div class="stab-code"><code class="stabilo">if (<span class="is-blue">window</span><span class="is-black">.</span><span class="is-blue">location</span><span class="is-black">.</span><span class="is-blue">hostname</span><span class="is-purple"> == </span><span class="is-green">'jgthms.com'</span>) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-code"><code class="stabilo">if (window.location.hostname == 'jgthms.com'<span class="is-black">)</span> {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>curly bracket</strong></div>
+        <div class="stab-code"><code class="stabilo">if (window.location.hostname == 'jgthms.com') <span class="is-black">{</span></code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you entered a <strong>block of code</strong> that's only executed if the previous condition is <strong>true</strong></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-blue">&nbsp;&nbsp;alert</span><span class="is-black">(</span><span class="is-green">'Welcome on my domain! 🤗'</span><span class="is-black">)</span></code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the curly bracket</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-black">}</span></code></div>
+      </div>
+    </div>
+
+    <p>
+      Since the alert box <em>did</em> appear, it means that the <strong>hostname</strong> is indeed <em>equal to</em> <code>'jgthms.com'</code>!
+    </p>
+
+    <p>
+      We've handled the case when the comparison returns <code>true</code>.
+    </p>
+
+    <p>
+      To handle the <strong>opposite case</strong>, when the hostname isn't <code>'jgthms.com'</code>, we can use the "<em>not equal to</em>" <strong>operator</strong> <code>!=</code>:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_if_not.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet skipRun=true %}
+
+    <p>
+      If you try out this snippet, you'll see that it doesn't trigger anything! (Unless this tutorial has been copied to another domain 😆).
+    </p>
+
+    <p>
+      What if we wanted to handle both cases <strong>simultaneously</strong>? We could write two <code>if</code> statements in a row. But since one statement is the <em>exact opposite</em> of the other, we can <strong>combine</strong> them with a <code>else</code> statment:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_if_else.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 28 -->
+<div id="step28" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Still equal!" %}
+
+    <p>With this conditional setup, we can be sure that:</p>
+
+    <ul>
+      <li><strong>only one</strong> of the two alerts will be triggered, but never both</li>
+      <li>at least one of the two alerts <em>will</em> be triggered, because we're covering <strong>all</strong> cases</li>
+    </ul>
+
+    <p>
+      While <code>else</code> is useful for covering all <em>remaining</em> cases, sometimes you want to handle more than two cases.
+    </p>
+
+    <p>
+      By using <code>else if</code> you can add <strong>intermediate</strong> statements and handle multiple cases:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_else_if.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 29 -->
+<div id="step29" class="step">
+  <div class="content">
+    {% include partials/gj.html title="You got it!" %}
+
+    <p>
+      As soon as one comparison returns <code>true</code>, it will be triggered, and all following statements will be ignored. That's why only one alert box showed up!
+    </p>
+
+    <p>
+      Conditional statements make use of the <strong>keywords</strong> <code>if</code> and <code>else</code>, followed by a set of <strong>parentheses</strong>.
+    </p>
+
+    <p>
+      This pattern of keyword/parentheses combination also happens to exist for another <a onclick="showStep(30);">essential programming concept…</a>
+    </p>
+  </div>
+</div>
+
+<!-- 30 -->
+<div id="step30" class="step">
+  <div class="content">
+    <h2>Loops <span class="stamp is-concept">concept</span></h2>
+
+    <p>
+      When you want to execute a block of code a <em>certain amount</em> of times, you can use a JavaScript <strong>loop</strong>.
+    </p>
+
+    <p>
+      Can you guess how many alert boxes this snippet will trigger?
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_loop.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 31 -->
+<div id="step31" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Three it is!" %}
+    <p>
+      There were exactly <strong>3</strong> alert boxes! Let's dissect what happened:
+    </p>
+
+    <ul>
+      <li>
+        <code>var i = 0</code> is the <strong>initial state</strong><br>
+        Before the loop even starts, the variable <code>i</code> is assigned a value of zero <code>0</code>.
+      </li>
+      <li>
+        <code>i < 3</code> is the <strong>conditional statement</strong><br>
+        On every iteration of the loop, we check this comparison.<br>
+        If it's <code>true</code>, we execute the code in the block.<br>
+        If it's <code>false</code>, we exit the loop.<br>
+      </li>
+      <li>
+        <code>i++</code> is the <strong>increment expression</strong><br>
+        <em>If</em> the block of code is executed, this expression is executed.<br>
+        In this case, the value of <code>i</code> is incremented by 1.
+      </li>
+    </ul>
+
+    <p>
+      Here's how you implemented it:
+    </p>
+
+    <div class="stabs is-vertical">
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>keyword</strong> <code>for</code></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-purple">for</span> (var i = 0; i < 3; i++) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-code"><code class="stabilo">for <span class="is-black">(</span>var i = 0; i < 3; i++) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you entered the <strong>initial state</strong></div>
+        <div class="stab-code"><code class="stabilo">for (<span class="is-purple">var </span><span class="is-blue">i</span><span class="is-purple"> = </span><span class="is-red">0</span>; i < 3; i++) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed a <strong>semicolon</strong> to separate the expressions</div>
+        <div class="stab-code"><code class="stabilo">for (var i = 0<span class="is-black">;</span> i < 3; i++) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you entered the <strong>comparison</strong> check</div>
+        <div class="stab-code"><code class="stabilo">for (var i = 0; <span class="is-blue">i</span><span class="is-purple"> < </span><span class="is-red">3</span>; i++) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed a <strong>semicolon</strong> to separate the expressions</div>
+        <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3<span class="is-black">;</span> i++) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you entered the <strong>increment</strong> expression</div>
+        <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3; <span class="is-blue">i</span><span class="is-purple">++</span>) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3; i++<span class="is-black">)</span> {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>curly bracket</strong></div>
+        <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3; i++) <span class="is-black">{</span></code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you entered a <strong>block of code</strong> that's only executed if the comparison check is <strong>true</strong></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-blue">&nbsp;&nbsp;alert</span><span class="is-black">(</span><span class="is-blue">i</span><span class="is-black">);</span></code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the curly bracket</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-black">}</span></code></div>
+      </div>
+    </div>
+
+    <p>
+      Let's analyze each iteration of the loop:
+    </p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Iteration</th>
+            <th>Value of <code>i</code></th>
+            <th>Test</th>
+            <th>Trigger the alert?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1st</td>
+            <td>0</td>
+            <td><code>0&nbsp;<&nbsp;3</code></td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>2nd</td>
+            <td>1</td>
+            <td><code>1&nbsp;<&nbsp;3</code></td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>3rd</td>
+            <td>2</td>
+            <td><code>2&nbsp;<&nbsp;3</code></td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>4th</td>
+            <td>3</td>
+            <td><code>3&nbsp;<&nbsp;3</code></td>
+            <td><strong>No!</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      This loop allowed us to <strong>repeat</strong> an action N times. That's what computers are all about!
+    </p>
+
+    <p>
+      Of all the types of variables we've covered so far, there is one in particular <a onclick="showStep(32);">worth looping through…</a>
+    </p>
+  </div>
+</div>
+
+<!-- 32 -->
+<div id="step32" class="step">
+  <div class="content">
+    <h2>Looping through arrays <span class="stamp is-tool">tool</span></h2>
+
+    <p>
+      Arrays are a perfect candidate for loops, because in programming we often want to repeat the <strong>same action</strong> for <em>each</em> item of an array.
+    </p>
+
+    <p>
+      Let's say we wanted to trigger an alert box for <em>each</em> item of an array. While we could write as many <code>alert()</code> statements as there are items in the array (😰), this solution is cumbersome and ineffective! It would be prone to errors, and wouldn't scale at all with bigger arrays.
+    </p>
+
+    <p>
+      Since programming languages are here to help us simplify our work, let's figure out a better way. We already know a few things:
+    </p>
+
+    <ul>
+      <li>
+        We know how to get an array's <strong>length</strong>
+      </li>
+      <li>
+        We know how to access an array's item by using the <strong>index</strong>
+      </li>
+      <li>
+        We have access to the variable <code>i</code>, which conveniently increments 1 by 1
+      </li>
+    </ul>
+
+    <p>
+      By combining these informations, we can devise the following snippet:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_loop_array.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 33 -->
+<div id="step33" class="step">
+  <div class="content">
+    {% include partials/gj.html title="In a row!" %}
+
+    <p>
+      One by one, the items of the array were displayed in their own alert box.
+    </p>
+
+    <p>
+      While using a loop simplifies the process of going through each item of an array, we still had to create a <code>for</code> block <strong>manually</strong> and create a new variable <code>i</code> whose only purpose was to increment after each loop.
+    </p>
+
+    <p>
+      I know what you're thinking. "<em><a onclick="showStep(34);">There must be a better way</a>!</em>"
+    </p>
+  </div>
+</div>
+
+<!-- 34 -->
+<div id="step34" class="step">
+  <div class="content">
+    <h2>forEach loop <span class="stamp is-tool">tool</span></h2>
+
+    <p>
+      Arrays actually have a <strong>method</strong> called <code>forEach()</code>, which allows to perform a task <em>for each</em> item in the array:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_loop_foreach.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 35 -->
+<div id="step35" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Better!" %}
+
+    <p>
+      Note a few improvements:
+    </p>
+
+    <ul>
+      <li>
+        There is no <code>i</code> variable involved
+      </li>
+      <li>
+        We don't need to access the array's <code>length</code>
+      </li>
+      <li>
+        We don't need to use the <strong>index</strong> with <code>my_thing[i]</code> to access the item
+      </li>
+    </ul>
+
+    <p>
+      Remember the syntax of the <code>alert()</code> function? It was <code>alert(parameter)</code>.
+    </p>
+
+    <p>
+      If you look carefully, you can see that <code>forEach()</code> has the exact same syntax! It's <code>forEach(parameter)</code> but where the parameter happens to be a <strong>function</strong> that spans 3 lines.
+    </p>
+
+    <p>
+      So far, we've used a few functions and methods:
+    </p>
+
+    <ul>
+      <li>
+        the <code>alert()</code> function (or window method)
+      </li>
+      <li>
+        the <code>push()</code> array method
+      </li>
+      <li>
+        the <code>includes()</code> array method
+      </li>
+      <li>
+        the <code>forEach()</code> array method
+      </li>
+    </ul>
+
+    <p>
+      We know how to <strong>call</strong> a function, but how do you actually <a onclick="showStep(36);">create one</a>?
+    </p>
+  </div>
+</div>
+
+<!-- 36 -->
+<div id="step36" class="step">
+  <div class="content">
+    <h2>Creating a custom function <span class="stamp is-info">info</span></h2>
+
+    <p>
+      The power of programming languages is the ability to create your <strong>own functions</strong>, that fit <em>your</em> needs.
+    </p>
+
+    <p>
+      Remember the keyword/parentheses combination that we used for <code>if/else</code> and <code>for</code>? Well, guess what: it's <em>almost</em> the same pattern here!
+    </p>
+
+    <p>
+      I'm saying "almost" because the only difference is that a function needs a <strong>name</strong>!
+    </p>
+
+    <p>
+      Let's <strong>create</strong> a function called <code>greet()</code>, with <strong>1</strong> parameter called <code>name</code>, and then immediately <strong>call</strong> it:
+    </p>
+
+    {% capture snippet %}{% include snippets/snippet_greet.md %}{% endcapture %}
+    {% include partials/snippet.html contents=snippet %}
+  </div>
+</div>
+
+<!-- 37 -->
+<div id="step37" class="step">
+  <div class="content">
+    {% include partials/gj.html title="Greetings!" %}
+
+    <p>
+      You've created your first function! It's a simple one but it can teach you a lot.
+    </p>
+
+    <p>
+      Note a few things:
+    </p>
+
+    <ul>
+      <li>
+        the <strong>name</strong> of the function is <code>greet</code>
+      </li>
+      <li>
+        the <strong>parameter</strong> is called <code>name</code>: it's like a variable, since it acts as a container for a value
+      </li>
+      <li>
+        we're creating a <strong>variable</strong> called <code>message</code> (a string) whose value is <code>'Hey there ' + name</code>
+      </li>
+      <li>
+        what this <strong>plus</strong> sign <code>+</code> does is <strong>concatenate</strong> (or combine) the two strings to make a single longer one
+      </li>
+      <li>
+        we're <strong>calling</strong> the <code>alert()</code> function, and use the <code>message</code> variable as parameter
+      </li>
+      <li>
+        after having created the function, we're calling it with the parameter <code>'Alex'</code>
+      </li>
+    </ul>
+
+    <p>
+      If we break it down step by step:
+    </p>
+
+    <div class="stabs is-vertical">
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>keyword</strong> <code>function</code></div>
+        <div class="stab-code"><code class="stabilo"><span class="is-purple">function</span> greet(name) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you typed the <strong>name</strong> of the function</div>
+        <div class="stab-code"><code class="stabilo">function <span class="is-blue">greet</span>(name) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-code"><code class="stabilo">function greet<span class="is-black">(</span>name) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you created a <strong>parameter</strong> called <code>name</code></div>
+        <div class="stab-code"><code class="stabilo">function greet(<span class="is-blue">name</span>) {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-code"><code class="stabilo">function greet(name<span class="is-black">)</span> {</code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you opened a <strong>curly bracket</strong></div>
+        <div class="stab-code"><code class="stabilo">function greet(name) <span class="is-black">{</span></code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you entered a <strong>block of code</strong> that's only executed whenever the function is <strong>called</strong></div>
+        <div class="stab-code"><code class="stabilo">&nbsp;&nbsp;<span class="is-purple">var</span><span class="is-blue"> message </span><span class="is-purple">= </span><span class="is-green">'Hey there '</span><span class="is-purple"> +</span><span class="is-blue"> name</span><span class="is-black">;</span></code><br><code class="stabilo">&nbsp;&nbsp;<span class="is-blue">alert</span><span class="is-black">(</span><span class="is-blue">message</span><span class="is-black">);</span></code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>closed</strong> the curly bracket</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-black">}</span></code></div>
+      </div>
+      <div class="stab">
+        <div class="stab-label">you <strong>called</strong> the function with a string as parameter</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-blue">greet</span><span class="is-black">(</span><span class="is-green">'Alex'</span><span class="is-black">)</span><span class="is-black">;</span></code></div>
+      </div>
+    </div>
+
+    <p>
+      Unless we call the <code>greet()</code> function at the end, nothing happens! That's because the <code>alert()</code> call is <em>inside</em> the scope of <code>greet()</code> so it's not triggered unless the parent function <code>greet()</code> itself is called!
+    </p>
+
+    <p>
+      Basically, by <strong>creating</strong> <code>greet()</code>, you're only telling the browser: "<em>Hey! I've created this new function. So if at some point I call it, please execute whatever is inside!</em>".
+    </p>
+
+    <p>
+      That's why, when you <strong>call</strong> <code>greet()</code> at the end, the browser executes its content, which happens to be calling <code>alert()</code>.
+    </p>
+
+    <p>
+      It's important to understand that functions are a <strong>2-step</strong> process: creating it first, calling it afterwards.
+    </p>
+
+    <p>
+      As a matter of fact, the <code>alert()</code> function we've used all along was already created beforehand. It just exists somewhere inside your browser.
+    </p>
+
+    <p>
+      Anyway, we've already covered <em>a lot</em> in 14 minutes!<br>
+      So, <a onclick="showStep(38);">what's next</a>?
+    </p>
+  </div>
+</div>
+
+<!-- 38 -->
+<div id="step38" class="step">
+  <div class="content">
+    <h2>Next steps <span class="stamp is-victory">victory!</span></h2>
+
+    <h3>Learn JavaScript</h3>
+
+    <p>
+      We've barely covery the basics here. But don't worry! There are <em>tons</em> of resources available online!
+    </p>
+
+    <p>
+      Here are a few <strong>free</strong> resources I'd recommend:
+    </p>
+
+    <ul>
+      <li>
+        <a href="http://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a>
+      </li>
+      <li>
+        <a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>
+      </li>
+      <li>
+        <a href="https://javascript.info/" target="_blank">The Modern JavaScript Tutorial</a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript" target="_blank">Mozilla Developer Network</a>
+      </li>
+      <li>
+        <a href="https://github.com/getify/You-Dont-Know-JS" target="_blank">You Don't Know JS</a>
+      </li>
+    </ul>
+
+    <p>
+      If you prefer <strong>video tutorials</strong>, check out these <strong><a href="https://click.linksynergy.com/fs-bin/click?id=76TvM1KGjYg&offerid=358574.81&type=3&subid=0" >Udemy courses</a><IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.81&type=3&subid=0" ></strong>:
+    </p>
+
+    <nav class="shares">
+      <a class="share is-udemy" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.1463348&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fmodern-javascript-from-the-beginning%2F"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/1463348_52a4.jpg" >
+        <br>
+        <em>21.5 hours 📼</em>
+        <strong>Modern JavaScript From The Beginning</strong>
+      </a>
+      <IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.1463348&type=2&subid=0" >
+
+      <a class="share is-udemy" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.851712&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fthe-complete-javascript-course%2F"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/851712_fc61_5.jpg" >
+        <br>
+        <em>17.5 hours 📼</em>
+        <strong>The Complete JavaScript Course: Build a Real-World Project</strong>
+      </a>
+      <IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.851712&type=2&subid=0" >
+    </nav>
+
+    <p>
+      If you're in a rush, try this <strong>shorter</strong> course!
+    </p>
+
+    <nav class="shares">
+      <a class="share is-udemy is-udemy-advanced" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.670034&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Ftop-javascript-interview-questions-and-answers%2F" target="_blank"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/670034_ce04_4.jpg" >
+        <br>
+        <em>Only 3.5 hours! 📼</em>
+        <strong>Advanced Javascript</strong>
+      </a>
+      <IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.670034&type=2&subid=0" >
+    </nav>
+
+    <h3>Learn HTML and CSS</h3>
+
+    <p>
+      JavaScript is only one third of what makes a webpage! You also need to know <strong>HTML</strong> and <strong>CSS</strong>.
+    </p>
+
+    <p>
+      Luckily, I've created <strong>two free references</strong> for you to browse through, so you can learn everything each language has to offer!
+    </p>
+
+    <nav class="shares">
+      <a
+        class="share is-html"
+        href="https://htmlreference.io"
+        rel="nofollow"
+        target="_blank"
+        >
+        {%
+          include partials/image.html
+          path="html-reference"
+          extension="png"
+          alt="HTML Reference"
+          width="64"
+          height="64"
+        %}
+        <br>
+        <em>Discover</em>
+        <strong>HTML Reference</strong>
+      </a>
+      <a
+        class="share is-css"
+        href="https://cssreference.io"
+        rel="nofollow"
+        target="_blank"
+        >
+        {%
+          include partials/image.html
+          path="css-reference"
+          extension="png"
+          alt="CSS Reference"
+          width="64"
+          height="64"
+        %}
+        <br>
+        <em>Discover</em>
+        <strong>CSS Reference</strong>
+      </a>
+    </nav>
+
+    <h3>Learn my CSS framework</h3>
+
+    <p>
+      I designed this page with <strong>Bulma</strong>, my free open source CSS framework based on Flexbox. <a href="https://bulma.io" target="_blank">Check it out!</a>
+    </p>
+
+    {%
+      include partials/panorama.html
+      class_name="bulma"
+      href="https://bulma.io/"
+      path="bulma-modern-css-framework-flexbox"
+      extension="png"
+      alt="Bulma CSS framework based on Flexbox"
+      width="256"
+      height="160"
+    %}
+
+    <h3>Read my book</h3>
+
+    <p>
+      I wrote a <strong>44-page PDF</strong> called "<a href="https://jgthms.com/css-in-44-minutes-ebook" target="_blank">CSS in 44 minutes</a>" which teaches how to build your own personal webpage from scratch with HTML5 and CSS3.
+    </p>
+
+    {%
+      include partials/panorama.html
+      class_name="fortyfour"
+      href="https://jgthms.com/css-in-44-minutes-ebook"
+      path="css-in-44-minutes-book-cover"
+      extension="png"
+      alt="CSS in 44 minutes ebook"
+      width="168"
+      height="235"
+    %}
+
+    <p>
+      As a bonus, the book also includes a small <strong>chapter on JavaScript</strong> in which I talk about functions, conditionals, objects, strings, and even explains how to interact with CSS.
+    </p>
+
+    <p>
+      I guess now there's <a onclick="showStep(39);">only one thing left to do</a>…
+    </p>
+  </div>
+</div>
+
+<!-- 39 -->
+<div id="step39" class="step">
+  <div class="content">
+    <h2>Share and support! 😍</h2>
+
+    <nav class="shares">
+      <a
+        class="share is-facebook"
+        href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fjgthms.com%2Fjavascript-in-14-minutes%2F"
+        rel="nofollow"
+        target="_blank"
+        >
+        <span>{% include icons/facebook.html %}</span>
+        <em>Share on</em>
+        <strong>Facebook</strong>
+      </a>
+      <a
+        class="share is-twitter"
+        data-social-network="Twitter"
+        data-social-action="tweet"
+        data-social-target="https://jgthms.com/javascript-in-14-minutes/"
+        href="https://twitter.com/intent/tweet?text=JavaScript%20in%2014%20minutes&url=https%3A%2F%2Fjgthms.com%2Fjavascript-in-14-minutes%2F&via=jgthms"
+        rel="nofollow"
+        target="_blank"
+        >
+        <span>{% include icons/twitter.html %}</span>
+        <em>Share on</em>
+        <strong>Twitter</strong>
+      </a>
+      <a class="share is-paypal" href="https://www.paypal.me/jgthmsuk" target="_blank">
+        {%
+          include partials/image.html
+          path="paypal"
+          extension="png"
+          alt="PayPal"
+          width="100"
+          height="26"
+        %}
+        <br>
+        <em>Donate on</em>
+        <strong>PayPal</strong>
+      </a>
+      <a class="share is-whatsapp" href="whatsapp://send?text=https%3A%2F%2Fjgthms.com%2Fjavascript-in-14-minutes%2F" data-action="share/whatsapp/share">
+        <span>{% include icons/whatsapp.html %}</span>
+        <em>Share via</em>
+        <strong>WhatsApp</strong>
+      </a>
+      <a class="share is-github" href="https://github.com/jgthms/javascript-in-14-minutes" target="_blank">
+        <span>{% include icons/github.html %}</span>
+        <em>Star on</em>
+        <strong>GitHub</strong>
+      </a>
+      <a class="share is-patreon" href="https://www.patreon.com/jgthms" target="_blank">
+        {%
+          include partials/image.html
+          path="become_a_patron_button"
+          extension="png"
+          alt="Become a Patron"
+          width="153"
+          height="36"
+        %}
+        <br>
+        <em>Support me on</em>
+        <strong>Patreon</strong>
+      </a>
+    </nav>
+
+    <p>
+      Thanks for reading!
+    </p>
+
+    <p class="madeby">
+      Made by <a href="https://jgthms.com/" target="_blank">@jgthms</a>
+    </p>
+  </div>
+</div>
+
+<aside id="sides" class="sides">
+  <div id="sideConcepts" class="side">
+    <div class="side-title">
+      <span class="stamp is-concept">concepts</span>
+    </div>
+    <div id="sideFunctions" class="side-item">
+      <span class="side-word is-concept">Functions</span>
+    </div>
+    <div id="sideVariables" class="side-item">
+      <span class="side-word is-concept">Variables</span>
+    </div>
+    <div id="sideConditionals" class="side-item">
+      <span class="side-word is-concept">Conditionals</span>
+    </div>
+    <div id="sideLoops" class="side-item">
+      <span class="side-word is-concept">Loops</span>
+    </div>
+  </div>
+
+  <div id="sideTypes" class="side">
+    <div class="side-title">
+      <span class="stamp is-type">types</span>
+    </div>
+    <div id="sideStrings" class="side-item">
+      <span class="side-word is-type">Strings</span>
+    </div>
+    <div id="sideNumbers" class="side-item">
+      <span class="side-word is-type">Numbers</span>
+    </div>
+    <div id="sideObjects" class="side-item">
+      <span class="side-word is-type">Objects</span>
+    </div>
+    <div id="sideArrays" class="side-item">
+      <span class="side-word is-type">Arrays</span>
+    </div>
+    <div id="sideBooleans" class="side-item">
+      <span class="side-word is-type">Booleans</span>
+    </div>
+  </div>
+</aside>

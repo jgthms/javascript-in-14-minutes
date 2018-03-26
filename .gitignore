@@ -1,0 +1,9 @@
+.sass-cache/
+_site/
+
+.DS_Store
+.jekyll-metadata
+_config.local.yml
+node_modules
+npm-debug.log
+Thumbs.db

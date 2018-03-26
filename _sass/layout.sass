@@ -1,0 +1,221 @@
+body
+  padding-bottom: 50vh
+
+.main
+  margin-left: auto
+  margin-right: auto
+  max-width: 29rem
+
+.snippet
+  @extend .block
+  position: relative
+
+.snippet-copy
+  color: $hl-grey
+  font-size: 0.75em
+  white-space: nowrap
+
++until(700px)
+  .snippet-contents
+    margin-bottom: 0.5rem
+
++from(700px)
+  .snippet
+    margin-left: -1.5rem
+    margin-right: -1.5rem
+  .snippet-copy
+    left: calc(100% + 1.5rem)
+    position: absolute
+    top: 21px
+
+$spacing: 2rem
+
+.header
+  padding: $spacing
+
+.step
+  padding: $spacing
+
+#step39
+  text-align: center
+
+.status
+  margin-bottom: 1.5rem
+
+.detect
+  @extend .block
+  background-color: $background
+  border-radius: 3px
+  padding: 1.25em 1.5em
+
+.instructions
+  @extend .block
+
+.fourteen
+  align-items: flex-end
+  // background-color: #F7DF1E
+  background-color: $s-yellow
+  color: #000
+  display: inline-flex
+  height: 4rem
+  justify-content: flex-end
+  padding-right: 2px
+  width: 4rem
+
+.run
+  a
+    background-color: $hl-blue
+    border-radius: 3px
+    color: $white
+    display: inline-block
+    padding: 0.5em 1em
+    vertical-align: top
+
+.gj
+  min-height: 40px
+  position: relative
+
+%animate
+  animation-fill-mode: both
+
+.check
+  align-items: center
+  animation-delay: 1.2s
+  animation-duration: 0.29s
+  animation-name: scale
+  animation-timing-function: ease-in-out
+  display: flex
+  height: 40px
+  justify-content: center
+  transform-origin: center
+  width: 40px
+
++until(700px)
+  .check
+    margin-bottom: 10px
+
+$offset: 0
+
++from(700px)
+  .check,
+  .content h2 .stamp
+    position: absolute
+    right: calc(100% + 1rem)
+  .check
+    top: -5px + $offset
+  .content h2 .stamp
+    top: 3px + $offset
+
+.check-circle
+  animation-duration: 1s
+  animation-fill-mode: both
+  animation-name: bounce
+  animation-timing-function: cubic-bezier(0,1,.6,1.08)
+  background-color: $s-green
+  border-radius: 290486px
+  height: 40px
+  position: absolute
+  transform-origin: center
+  width: 40px
+
+.check-svg
+  position: absolute
+  svg
+    dipslay: block
+  polyline
+    animation-delay: 0.25s
+    animation-duration: 0.5s
+    animation-fill-mode: forwards
+    animation-name: fill
+    stroke-dasharray: 26
+    stroke-dashoffset: 26
+
+@keyframes bounce
+  from
+    transform: scale(0)
+  to
+    transform: scale(1)
+
+@keyframes fill
+  to
+    stroke-dashoffset: 0
+
+@keyframes scale
+  0%,
+  100%
+    transform: scale(1)
+  50%
+    transform: scale(1.1)
+
+.sides
+  animation-duration: 500ms
+  animation-fill-mode: both
+  background-color: $white
+  border-radius: 5px
+  bottom: 5vw
+  display: none
+  padding: 1rem
+  padding-right: 2rem
+  position: fixed
+  right: 5vw
+  transform-origin: bottom right
+  width: 10rem
+  z-index: 10
+  &.is-active
+    animation-name: bounce
+    display: block
+
++until(1000px)
+  .sides
+    &,
+    &.is-active
+      display: none
+
+.side
+  display: none
+  white-space: nowrap
+  &.is-active
+    display: block
+
+.side-title
+  font-size: 1.5rem
+
+.side-item
+  animation-duration: 1s
+  color: $text-strong
+  display: none
+  font-size: 0.875rem
+  padding: 0.25em 0.5em
+  &.is-active
+    animation-name: blink
+    display: block
+
+// State
+
+.step
+  animation-duration: 1s
+  display: none
+  &.is-active
+    animation-name: blink
+    display: block
+
+.thing
+  display: none
+  &.is-active
+    display: block
+
+.case
+  display: none
+
+$cases: "mobile" "tablet" "desktop" "windows" "mac" "linux" "chrome" "firefox" "safari" "edge" "opera"
+
+div.case
+  @extend .block
+
+@each $case in $cases
+  html.case-#{$case} div.case.is-#{$case}
+    display: block
+  html.case-#{$case} span.case.is-#{$case}
+    display: inline
+  html.case-#{$case} .not-#{$case}
+    display: none !important

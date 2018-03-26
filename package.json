@@ -1,0 +1,35 @@
+{
+  "name": "javascript-in-14-minutes",
+  "version": "0.0.1",
+  "description": "JavaScript in 14 minutes",
+  "keywords": [
+    "sass",
+    "bulma",
+    "css",
+    "tutorial",
+    "javascript"
+  ],
+  "author": "Jeremy Thomas <bbxdesign@gmail.com> (https://jgthms.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^7.1.5",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "bulma": "^0.6.0",
+    "cssnano": "^3.10.0",
+    "node-sass": "^4.5.3",
+    "postcss-cli": "^4.1.1"
+  },
+  "scripts": {
+    "css-deploy": "npm run css-build && npm run css-autoprefix && npm run css-minify",
+    "css-build": "node-sass _sass/main.sass css/main.css",
+    "css-autoprefix": "postcss --no-map --use autoprefixer --output css/main.css css/main.css",
+    "css-minify": "postcss --no-map --use cssnano --output css/main.min.css css/main.css",
+    "css-watch": "npm run css-build -- --watch",
+    "deploy": "npm run css-deploy && npm run js-build",
+    "js-build": "babel _javascript --out-dir lib",
+    "js-watch": "npm run js-build -- --watch",
+    "start": "npm run css-watch | npm run js-watch"
+  }
+}

@@ -1,0 +1,16 @@
+<div class="snippet">
+  <div class="snippet-contents">
+    {{ include.contents | markdownify }}
+  </div>
+  {% unless include.skipRun %}
+    <a class="snippet-copy not-mobile not-tablet">
+      Copy to clipboard
+    </a>
+  {% endunless %}
+</div>
+
+{% unless include.skipRun %}
+<div class="run case is-mobile is-tablet">
+  <a>Run snippet</a>
+</div>
+{% endunless %}
