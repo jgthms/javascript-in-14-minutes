@@ -2925,7 +2925,9 @@ html.case-opera .not-opera {
   --paypal: #012169;
   --fortyfour: #5f45bb;
   --bulma: #00d1b2;
-  --udemy: #ec5252; }
+  --udemy: #ec5252;
+  --hn: #ff6600;
+  --reddit: #5f99cf; }
 
 .share {
   border-radius: 5px;
@@ -2982,14 +2984,19 @@ html.case-opera .not-opera {
   .share.is-paypal {
     --brand: var(--paypal); }
   .share.is-patreon {
-    --brand: var(--patreon);
-    margin-bottom: 0; }
+    --brand: var(--patreon); }
   .share.is-fortyfour {
     --brand: var(--fortyfour);
     width: auto; }
   .share.is-bulma {
     --brand: var(--bulma);
     width: auto; }
+  .share.is-hn {
+    --brand: var(--hn);
+    margin-bottom: 0; }
+  .share.is-reddit {
+    --brand: var(--reddit);
+    margin-bottom: 0; }
   .share.is-html:hover img, .share.is-css:hover img, .share.is-paypal:hover img {
     mix-blend-mode: screen; }
   .share.is-patreon, .share.is-paypal {
