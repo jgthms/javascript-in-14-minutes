@@ -2,7 +2,8 @@
 .subtitle,
 .content h2,
 .content h3,
-.run a,
+.button,
+.label,
 .share,
 .stab::before,
 .snippet-copy,
@@ -249,6 +250,10 @@ $udemy: #ec5252
           font-size: 0.75em
           margin-left: 0.5em
           margin-right: 0.25em
+  .label
+    font-size: 0.875em
+    &:not(:last-child)
+      margin-bottom: 0.5em
   .focus
     margin: 2em 0
     text-align: center
@@ -286,6 +291,17 @@ $udemy: #ec5252
         color: $hl-red
       &.is-purple
         color: $hl-purple
+  .newsletter
+    background-color: $jt
+    border-radius: 5px
+    margin-bottom: 1.5rem
+    padding: 2rem
+    h3
+      margin-top: 0
+    .help
+      em
+        color: rgba($black, 0.5)
+        font-style: normal
 
 @keyframes blink
   from

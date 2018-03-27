@@ -2448,6 +2448,8 @@ body {
 
 #step39 {
   text-align: center; }
+  #step39 .newsletter-content {
+    text-align: left; }
 
 .status {
   margin-bottom: 1.5rem; }
@@ -2473,11 +2475,16 @@ body {
   padding-right: 2px;
   width: 4rem; }
 
-.run a {
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   background-color: #2795ee;
+  border: none;
   border-radius: 3px;
   color: white;
+  cursor: pointer;
   display: inline-block;
+  font-size: 1rem;
   padding: 0.5em 1em;
   vertical-align: top; }
 
@@ -2783,7 +2790,8 @@ html.case-opera .not-opera {
 .subtitle,
 .content h2,
 .content h3,
-.run a,
+.button,
+.label,
 .share,
 .stab::before,
 .snippet-copy,
@@ -3047,6 +3055,11 @@ html.case-opera .not-opera {
     margin-left: 0.5em;
     margin-right: 0.25em; }
 
+.content .label {
+  font-size: 0.875em; }
+  .content .label:not(:last-child) {
+    margin-bottom: 0.5em; }
+
 .content .focus {
   margin: 2em 0;
   text-align: center; }
@@ -3087,6 +3100,17 @@ html.case-opera .not-opera {
       color: #ed5c65; }
     .content .stabilo span.is-purple {
       color: #a151d2; }
+
+.content .newsletter {
+  background-color: #fff8f1;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  padding: 2rem; }
+  .content .newsletter h3 {
+    margin-top: 0; }
+  .content .newsletter .help em {
+    color: rgba(10, 10, 10, 0.5);
+    font-style: normal; }
 
 @-webkit-keyframes blink {
   from {

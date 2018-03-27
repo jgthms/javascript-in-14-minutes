@@ -1329,18 +1329,36 @@ layout: default
     </ul>
 
     <p>
-      If you prefer <strong>video tutorials</strong>, check out these <strong><a href="https://click.linksynergy.com/fs-bin/click?id=76TvM1KGjYg&offerid=358574.81&type=3&subid=0" >Udemy courses</a><IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.81&type=3&subid=0" ></strong>:
+      If you prefer <strong>video tutorials</strong>, check out these <strong><a href="https://click.linksynergy.com/fs-bin/click?id=76TvM1KGjYg&offerid=358574.81&type=3&subid=0" target="_blank">Udemy courses</a><IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.81&type=3&subid=0" ></strong>:
     </p>
 
     <nav class="shares">
-      <a class="share is-udemy" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.1463348&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fmodern-javascript-from-the-beginning%2F"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/1463348_52a4.jpg" >
+      <a class="share is-udemy" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.1463348&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fmodern-javascript-from-the-beginning%2F" target="_blank"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/1463348_52a4.jpg" >
+        <br>
+        {%
+          include partials/image.html
+          path="udemy-logo"
+          extension="png"
+          alt="Udemy logo"
+          width="72"
+          height="21"
+        %}
         <br>
         <em>21.5 hours 📼</em>
         <strong>Modern JavaScript From The Beginning</strong>
       </a>
       <IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.1463348&type=2&subid=0" >
 
-      <a class="share is-udemy" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.851712&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fthe-complete-javascript-course%2F"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/851712_fc61_5.jpg" >
+      <a class="share is-udemy" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.851712&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fthe-complete-javascript-course%2F" target="_blank"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/851712_fc61_5.jpg" >
+        <br>
+        {%
+          include partials/image.html
+          path="udemy-logo"
+          extension="png"
+          alt="Udemy logo"
+          width="72"
+          height="21"
+        %}
         <br>
         <em>17.5 hours 📼</em>
         <strong>The Complete JavaScript Course: Build a Real-World Project</strong>
@@ -1354,6 +1372,15 @@ layout: default
 
     <nav class="shares">
       <a class="share is-udemy is-udemy-advanced" href="https://click.linksynergy.com/link?id=76TvM1KGjYg&offerid=358574.670034&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Ftop-javascript-interview-questions-and-answers%2F" target="_blank"><IMG border=0 src="https://udemy-images.udemy.com/course/480x270/670034_ce04_4.jpg" >
+        <br>
+        {%
+          include partials/image.html
+          path="udemy-logo"
+          extension="png"
+          alt="Udemy logo"
+          width="72"
+          height="21"
+        %}
         <br>
         <em>Only 3.5 hours! 📼</em>
         <strong>Advanced Javascript</strong>
@@ -1520,6 +1547,8 @@ layout: default
         <strong>Patreon</strong>
       </a>
     </nav>
+
+    {% include partials/newsletter.html %}
 
     <p>
       Thanks for reading!

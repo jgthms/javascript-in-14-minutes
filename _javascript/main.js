@@ -292,7 +292,7 @@ function showSide(id) {
 }
 
 function runSnippet() {
-  var els = document.querySelectorAll('.run');
+  var els = document.querySelectorAll('.run-snippet');
   if (els.length > 0) {
     els.forEach(el => {
       var snippet_contents =
