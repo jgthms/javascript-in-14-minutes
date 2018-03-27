@@ -400,6 +400,4 @@ document.addEventListener('DOMContentLoaded', () => {
         .firstElementChild.firstElementChild;
     }
   });
-
-  showStep(39);
 });
