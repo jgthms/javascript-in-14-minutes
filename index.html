@@ -109,13 +109,13 @@ layout: default
     <div class="case is-chrome not-mobile not-tablet">
       Since you're using <strong>Google Chrome</strong>, open the JavaScript console with
       <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd> or <kbd class="key">F12</kbd></span>
-      <span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd></span>
+      <span class="case is-mac"><kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd></span>
     </div>
 
     <div class="case is-firefox not-mobile not-tablet">
       Since you're using <strong>Mozilla Firefox</strong>, open the Web console with
       <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd> or <kbd class="key">F12</kbd></span>
-      <span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd></span>
+      <span class="case is-mac"><kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd></span>
     </div>
 
     <div class="case is-edge not-mobile not-tablet">
@@ -126,16 +126,16 @@ layout: default
     <div class="case is-opera not-mobile not-tablet">
       Since you're using <strong>Opera</strong>, open the JavaScript console with
       <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">I</kbd></span>
-      <span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">I</kbd></span>
+      <span class="case is-mac"><kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">I</kbd></span>
     </div>
 
     <div class="case is-safari not-mobile not-tablet">
       <p>Since you're using <strong>Apple Safari</strong>:</p>
       <ol>
-        <li>Go to <strong>Preferences</strong> with <kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">,</kbd></li>
+        <li>Go to <strong>Preferences</strong> with <kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">,</kbd></li>
         <li>Go to the <strong>Advanced</strong> tab</li>
         <li>Enable <strong>Show Develop menu in menu bar</strong></li>
-        <li>Open the JavaScript console <kbd class="key">⌥</kbd><kbd class="plus">+</kbd><kbd class="key">⌘</kbd><kbd class="plus">+</kbd><kbd class="key">C</kbd></li>
+        <li>Open the JavaScript console <kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">C</kbd></li>
       </ol>
     </div>
 
@@ -408,11 +408,11 @@ layout: default
     {% include partials/gj.html title="Exactly!" %}
 
     <p>
-      You already know the syntax for calling the <code>alert</code> function: <code>alert(parameter)</code>.
+      You already know the syntax for calling the <code>alert</code> function: <code>alert(argument)</code>.
     </p>
 
     <p>
-      In this case, the parameter is an array with 3 items that you have defined like this:
+      In this case, the argument you passed is an array with 3 items that you have defined like this:
     </p>
 
     <div class="stabs">
@@ -461,7 +461,7 @@ layout: default
     </p>
 
     <p>
-      What about the <strong>third parameter</strong>? It's not a string because it's not wrapped in quotes, and it's not a number either.
+      What about the <strong>third argument</strong>? It's not a string because it's not wrapped in quotes, and it's not a number either.
     </p>
     <p>
       So <a onclick="showStep(17);">what is it</a>?
@@ -564,8 +564,22 @@ layout: default
       By storing our array into a variable, we managed to make our code more <strong>readable</strong>.
     </p>
 
+    <div class="message is-info">
+      <div class="message-body">
+        <p>
+          If you look at other recent tutorials on the Web, you'll see variables defined using the keywords <code>const</code> and <code>let</code>. While they are extremely useful, they're hard for me to explain if you're not familiar with the basics of JavaScript.
+        </p>
+        <p>
+          So that's why I decided to use the keyword <code>var</code> here since it's easier to use and understand when learning JavaScript.
+        </p>
+        <p>
+          If what I just said didn't make sense, don't worry about it and keep on reading :-)
+        </p>
+      </div>
+    </div>
+
     <p>
-      Although this variables contains a list of several things, we might want to deal with only a <strong>single</strong> item of the list.
+      Although this <code>my_things</code> variable contains a list of several things, we might want to deal with only a <strong>single</strong> item of the list.
     </p>
 
     <p>
@@ -1133,11 +1147,11 @@ layout: default
     </ul>
 
     <p>
-      Remember the syntax of the <code>alert()</code> function? It was <code>alert(parameter)</code>.
+      Remember the syntax of the <code>alert()</code> function? It was <code>alert(argument)</code>.
     </p>
 
     <p>
-      If you look carefully, you can see that <code>forEach()</code> has the exact same syntax! It's <code>forEach(parameter)</code> but where the parameter happens to be a <strong>function</strong> that spans 3 lines.
+      If you look carefully, you can see that <code>forEach()</code> has the exact same syntax! It's <code>forEach(argument)</code> but where the argument happens to be a <strong>function</strong> that spans 3 lines.
     </p>
 
     <p>
@@ -1221,9 +1235,28 @@ layout: default
         we're <strong>calling</strong> the <code>alert()</code> function, and use the <code>message</code> variable as parameter
       </li>
       <li>
-        after having created the function, we're calling it with the parameter <code>'Alex'</code>
+        after having created the function, we're calling it with the argument <code>'Alex'</code>
       </li>
     </ul>
+
+    <div class="message is-warning">
+      <div class="message-body">
+        <p>
+          You might wonder why we're calling <code>name</code> a <strong>parameter</strong> when so far we've called <strong>argument</strong> the things we pass to a function. Well there's a difference!
+        </p>
+        <ul>
+          <li>
+            When you <strong>define</strong> a function with <code>function greet(name)</code>, <code>name</code> is here a <strong>parameter</strong>: it's like a <em>variable</em> in your function's definition.
+          </li>
+          <li>
+            When you <strong>call</strong> a function with <code>greet('Alex')</code>, <code>'Alex'</code> is here an <strong>argument</strong>: it's the <em>data</em> you pass to the function when calling it.
+          </li>
+        </ul>
+        <p>
+          So whether you define a function or call it, you describe what's in the parenthesis as either parameters or arguments.
+        </p>
+      </div>
+    </div>
 
     <p>
       If we break it down step by step:
@@ -1263,7 +1296,7 @@ layout: default
         <div class="stab-code"><code class="stabilo"><span class="is-black">}</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>called</strong> the function with a string as parameter</div>
+        <div class="stab-label">you <strong>called</strong> the function with a string as argument</div>
         <div class="stab-code"><code class="stabilo"><span class="is-blue">greet</span><span class="is-black">(</span><span class="is-green">'Alex'</span><span class="is-black">)</span><span class="is-black">;</span></code></div>
       </div>
     </div>
